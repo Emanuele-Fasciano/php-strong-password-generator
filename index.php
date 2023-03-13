@@ -16,8 +16,8 @@ include __DIR__ . './partials/functions.php';
 $error_message = false;
 
 
-if(isset($_GET["passwordLength"])){ 
-    $password_length = (int) $_GET["passwordLength"];
+if(isset($_POST["passwordLength"])){ 
+    $password_length = (int) $_POST["passwordLength"];
     if(!empty($password_length)){
         session_start();
         $_SESSION["password"] = createPassword($password_length);
@@ -32,7 +32,7 @@ if(isset($_GET["passwordLength"])){
 <body>
     <div class="container">
         <h1>Generatore di password</h1>
-        <form method="GET" class="mt-5">
+        <form method="POST" class="mt-5">
             <label for="passwordLength">Scegliere la lunghezza della password</label> <br>
             <input type="number" name="passwordLength" id="passwordLength" min="5" class="mt-3">
             <button class="btn btn-primary">Genera</button>
